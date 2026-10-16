@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', 'Hind Siliguri', 'Noto Sans Bengali', 'Lohit Bengali', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+.font-bangla {
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Lohit Bengali', sans-serif;
+}
+
+/* Hide the scrollbar on the horizontally scrolling department pills (class was used but undefined) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Print only the serial slip (Print / Download Slip button), not the whole website */
+@media print {
+  #root > div > *:not(.fixed) {
+    display: none !important;
+  }
+  body * {
+    visibility: hidden !important;
+  }
+  #printableSerialSlip,
+  #printableSerialSlip * {
+    visibility: visible !important;
+  }
+  #printableSerialSlip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 650px;
+    box-shadow: none !important;
+  }
+}
